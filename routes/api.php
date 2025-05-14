@@ -18,6 +18,8 @@ Route::middleware('auth:sanctum')->put('/user/update', [UserController::class, '
 Route::get('/truck-requests', [TruckRequestController::class, 'allRequests']);
 Route::post('/send-email', [EmailController::class, 'send']); // ارسال ايميل للمستخدم
 Route::put('/truck-requests/{id}/update-status', [TruckRequestController::class, 'updateStatus']);
+Route::put('/truck-requests/{id}/update', [TruckRequestController::class, 'update']);
+
 
 Route::get('/notifications', [NotificationController::class, 'index']);
 Route::delete('/notifications/{id}', function ($id) {

@@ -117,4 +117,18 @@ public function updateStatus(Request $request, $id)
 
     return response()->json(['message' => 'Status updated and notification sent']);
 }
+public function update(Request $request, $id) {
+    $order = TruckRequest::findOrFail($id);
+    $order->pickup_location = $request->pickup_location;
+    $order->dropoff_location = $request->dropoff_location;
+    $order->pickup_time = $request->pickup_time;
+    $order->delivery_time = $request->delivery_time;
+    $order->truck_type = strtolower($request->truck_type);
+    $order->weight = $request->weight;
+    $order->cargo_type = $request->cargo_type;
+    $order->note = $request->note;
+    $order->save();
+
+    return response()->json(['message' => 'Order updated successfully']);
+}
 }
