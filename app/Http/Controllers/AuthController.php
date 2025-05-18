@@ -17,14 +17,8 @@ class AuthController extends Controller
             'password' => [
                 'required',
                 'confirmed',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'
             ],
-        ], [
-            'name.regex' => 'Name must contain only letters and spaces.',
-            'email.email' => 'Please enter a valid email address.',
-            'email.unique' => 'This email is already registered.',
-            'password.regex' => 'Password must contain at least one uppercase letter, one lowercase letter.',
-        ]);
+        ], );
 
         $user = User::create([
             'name' => $request->name,
